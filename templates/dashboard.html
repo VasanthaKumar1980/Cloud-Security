@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<h2>Cloud Storage Dashboard</h2>
+
+<form action="/upload" method="POST" enctype="multipart/form-data">
+
+<input type="file" name="file" required>
+
+<button type="submit">Upload File</button>
+
+</form>
+
+<h3>Your Files</h3>
+
+<div class="file-list">
+
+{% for file in files %}
+
+<div class="file-item">
+
+<span>{{file}}</span>
+
+<a class="download-btn" href="/download/{{file}}">
+Download
+</a>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<br>
+
+<a href="/logout">Logout</a>
+
+</div>
+
+</body>
+</html>
